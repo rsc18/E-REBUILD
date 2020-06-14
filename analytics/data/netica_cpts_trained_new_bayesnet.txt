@@ -1,0 +1,689 @@
+cc8_g_1:
+High        Medium      Low         cc8_g_3 
+0.333333    0.333333    0.333333    High    
+0.333333    0.333333    0.333333    Medium  
+0.333333    0.333333    0.333333    Low     
+
+cc7_rp_2_a:
+High        Medium      Low         cc7_rp_2_d 
+0.333333    0.333333    0.333333    High       
+0.333333    0.333333    0.333333    Medium     
+0.333333    0.333333    0.333333    Low        
+
+cc6_g_2:
+High        Medium      Low         cc7_g_6 
+0.333333    0.333333    0.333333    High    
+0.333333    0.333333    0.333333    Medium  
+0.333333    0.333333    0.333333    Low     
+
+cc6_rp_3_c:
+High        Medium      Low         cc7_rp_3 
+0.333333    0.333333    0.333333    High     
+0.333333    0.333333    0.333333    Medium   
+0.333333    0.333333    0.333333    Low      
+
+cc6_rp_3_a:
+High        Medium      Low         cc7_rp_2_a 
+0.333333    0.333333    0.333333    High       
+0.333333    0.333333    0.333333    Medium     
+0.333333    0.333333    0.333333    Low        
+
+cc6_g_3:
+High        Medium      Low         cc8_g_8 
+0.333333    0.333333    0.333333    High    
+0.333333    0.333333    0.333333    Medium  
+0.333333    0.333333    0.333333    Low     
+
+cc6_ns_1:
+High        Medium      Low         cc7_rp_1 
+0.333333    0.333333    0.333333    High     
+0.333333    0.333333    0.333333    Medium   
+0.333333    0.333333    0.333333    Low      
+
+cc6_rp_1:
+High        Medium      Low         cc6_rp_2 cc6_rp_3_c 
+0.333333    0.333333    0.333333    High     High       
+0.333333    0.333333    0.333333    High     Medium     
+0.333333    0.333333    0.333333    High     Low        
+0.333333    0.333333    0.333333    Medium   High       
+0.333333    0.333333    0.333333    Medium   Medium     
+0.333333    0.333333    0.333333    Medium   Low        
+0.333333    0.333333    0.333333    Low      High       
+0.333333    0.333333    0.333333    Low      Medium     
+0.333333    0.333333    0.333333    Low      Low        
+
+Distance:
+High        Medium      Low         cc8_g_a_3 
+0.999993    6.42742e-6  3.75891e-7  High      
+0.879912    8.38344e-6  0.12008     Medium    
+1.59502e-5  0.999981    2.60592e-6  Low       
+
+LivingArea:
+High        Medium      Low         cc6_rp_a_3 cc7_g_b_4 
+0.333333    0.333333    0.333333    High       High      
+0.333333    0.333333    0.333333    High       Medium    
+0.333333    0.333333    0.333333    High       Low       
+0.333333    0.333333    0.333333    Medium     High      
+0.333333    0.333333    0.333333    Medium     Medium    
+0.333333    0.333333    0.333333    Medium     Low       
+0.333333    0.333333    0.333333    Low        High      
+0.333333    0.333333    0.333333    Low        Medium    
+0.333333    0.333333    0.333333    Low        Low       
+
+Paint:
+High        Medium      Low         cc6_g_a_1 cc7_g_b_4 
+0.333333    0.333333    0.333333    High      High      
+0.333333    0.333333    0.333333    High      Medium    
+0.333333    0.333333    0.333333    High      Low       
+0.333333    0.333333    0.333333    Medium    High      
+0.333333    0.333333    0.333333    Medium    Medium    
+0.333333    0.333333    0.333333    Medium    Low       
+0.333333    0.333333    0.333333    Low       High      
+0.333333    0.333333    0.333333    Low       Medium    
+0.333333    0.333333    0.333333    Low       Low       
+
+ProtectFloor:
+High        Medium      Low         cc6_g_a_1 
+0.333333    0.333333    0.333333    High      
+0.333333    0.333333    0.333333    Medium    
+0.333333    0.333333    0.333333    Low       
+
+math:
+High        Medium      Low         
+0.129167    0.6375      0.233333
+
+BuildingComplete:
+High        Medium      Low         math   
+0.481481    3.7037e-7   0.518518    High   
+0.296875    5.20833e-8  0.703125    Medium 
+0.322581    1.6129e-7   0.677419    Low    
+
+LevelComplete:
+High        Medium      Low         math   
+0.695652    1.08696e-7  0.304348    High   
+0.595604    2.1978e-8   0.404396    Medium 
+0.707143    7.14286e-8  0.292857    Low    
+
+MaterialCredits:
+High        Medium      Low         math   
+0.333333    0.333333    0.333333    High   
+0.333333    0.333333    0.333333    Medium 
+0.333333    0.333333    0.333333    Low    
+
+NumBlocks:
+High        Medium      Low         math   
+0.46875     1.5625e-7   0.53125     High   
+0.490028    2.849e-8    0.509971    Medium 
+0.598425    7.87401e-8  0.401575    Low    
+
+NumTrades:
+High        Medium      Low         math   
+0.921875    0.0468751   0.0312501   High   
+0.883191    0.0968661   0.019943    Medium 
+0.818898    0.102362    0.0787402   Low    
+
+NumWrong:
+High        Medium      Low         math   
+0.906976    2.32558e-7  0.0930234   High   
+0.902439    0.0146342   0.0829269   Medium 
+0.947916    1.04167e-7  0.0520834   Low    
+
+NumAssignments:
+High        Medium      Low         math   
+0.777777    5.55555e-7  0.222222    High   
+0.702381    0.0119049   0.285714    Medium 
+0.71875     3.125e-7    0.28125     Low    
+
+NumFailedAssignments:
+High        Medium      Low         math   
+0.444444    0.055556    0.5         High   
+0.416667    0.0952382   0.488095    Medium 
+0.3125      0.0937502   0.59375     Low    
+
+NumFamilyCollected:
+High        Medium      Low         math   
+0.999999    5.55555e-7  5.55555e-7  High   
+0.97619     0.0119049   0.0119049   Medium 
+0.968749    0.0312503   3.125e-7    Low    
+
+PercentLost:
+High        Medium      Low         math   
+0.333333    0.333333    0.333333    High   
+0.333333    0.333333    0.333333    Medium 
+0.333333    0.333333    0.333333    Low    
+
+Size:
+High        Medium      Low         math   
+0.925925    0.0370374   0.0370374   High   
+0.984375    0.00520838  0.0104167   Medium 
+0.983871    1.6129e-7   0.0161292   Low    
+
+Time:
+High        Medium      Low         math   
+0.596774    0.298387    0.104839    High   
+0.576797    0.26634     0.156863    Medium 
+0.625       0.232143    0.142857    Low    
+
+TotalLost:
+High        Medium      Low         math   
+0.190476    0.595238    0.214286    High   
+0.320675    0.383966    0.295359    Medium 
+0.462963    0.259259    0.277778    Low    
+
+cc8_g_3:
+High        Medium      Low         cc8_g_4 cc8_g_2 
+0.333333    0.333333    0.333333    High    High    
+0.333333    0.333333    0.333333    High    Medium  
+0.333333    0.333333    0.333333    High    Low     
+0.333333    0.333333    0.333333    Medium  High    
+0.333333    0.333333    0.333333    Medium  Medium  
+0.333333    0.333333    0.333333    Medium  Low     
+0.333333    0.333333    0.333333    Low     High    
+0.333333    0.333333    0.333333    Low     Medium  
+0.333333    0.333333    0.333333    Low     Low     
+
+cc8_g_4:
+High        Medium      Low         math   
+0.333333    0.333333    0.333333    High   
+0.333333    0.333333    0.333333    Medium 
+0.333333    0.333333    0.333333    Low    
+
+cc8_g_6:
+High        Medium      Low         cc8_g_7 cc8_g_8 
+0.333333    0.333333    0.333333    High    High    
+0.333333    0.333333    0.333333    High    Medium  
+0.333333    0.333333    0.333333    High    Low     
+0.333333    0.333333    0.333333    Medium  High    
+0.333333    0.333333    0.333333    Medium  Medium  
+0.333333    0.333333    0.333333    Medium  Low     
+0.333333    0.333333    0.333333    Low     High    
+0.333333    0.333333    0.333333    Low     Medium  
+0.333333    0.333333    0.333333    Low     Low     
+
+cc8_g_7:
+High        Medium      Low         cc8_g_8 
+0.333333    0.333333    0.333333    High    
+0.333333    0.333333    0.333333    Medium  
+0.333333    0.333333    0.333333    Low     
+
+cc8_g_2:
+High        Medium      Low         math   
+0.333333    0.333333    0.333333    High   
+0.333333    0.333333    0.333333    Medium 
+0.333333    0.333333    0.333333    Low    
+
+cc7_rp_2_b:
+High        Medium      Low         cc7_rp_2_d 
+0.333333    0.333333    0.333333    High       
+0.333333    0.333333    0.333333    Medium     
+0.333333    0.333333    0.333333    Low        
+
+cc7_rp_2_d:
+High        Medium      Low         math   
+0.333333    0.333333    0.333333    High   
+0.333333    0.333333    0.333333    Medium 
+0.333333    0.333333    0.333333    Low    
+
+cc7_rp_2_c:
+High        Medium      Low         cc7_rp_3 
+0.333333    0.333333    0.333333    High     
+0.333333    0.333333    0.333333    Medium   
+0.333333    0.333333    0.333333    Low      
+
+cc7_rp_3:
+High        Medium      Low         math   
+8.06451e-8  1           8.06451e-8  High   
+1.63399e-8  0.866013    0.133987    Medium 
+4.46428e-8  0.129464    0.870536    Low    
+
+cc7_g_4:
+High        Medium      Low         cc8_g_9 
+0.333333    0.333333    0.333333    High    
+0.333333    0.333333    0.333333    Medium  
+0.333333    0.333333    0.333333    Low     
+
+cc8_g_9:
+High        Medium      Low         math   
+0.333333    0.333333    0.333333    High   
+0.333333    0.333333    0.333333    Medium 
+0.333333    0.333333    0.333333    Low    
+
+cc7_g_5:
+High        Medium      Low         cc8_g_5 
+0.333333    0.333333    0.333333    High    
+0.333333    0.333333    0.333333    Medium  
+0.333333    0.333333    0.333333    Low     
+
+cc8_g_5:
+High        Medium      Low         math   
+0.333333    0.333333    0.333333    High   
+0.333333    0.333333    0.333333    Medium 
+0.333333    0.333333    0.333333    Low    
+
+cc6_rp_2:
+High        Medium      Low         cc6_rp_3_d cc7_rp_1 cc6_rp_3_b cc6_rp_3_a 
+0.333333    0.333333    0.333333    High       High     High       High       
+0.333333    0.333333    0.333333    High       High     High       Medium     
+0.333333    0.333333    0.333333    High       High     High       Low        
+0.333333    0.333333    0.333333    High       High     Medium     High       
+0.333333    0.333333    0.333333    High       High     Medium     Medium     
+0.333333    0.333333    0.333333    High       High     Medium     Low        
+0.333333    0.333333    0.333333    High       High     Low        High       
+0.333333    0.333333    0.333333    High       High     Low        Medium     
+0.333333    0.333333    0.333333    High       High     Low        Low        
+0.333333    0.333333    0.333333    High       Medium   High       High       
+0.333333    0.333333    0.333333    High       Medium   High       Medium     
+0.333333    0.333333    0.333333    High       Medium   High       Low        
+0.333333    0.333333    0.333333    High       Medium   Medium     High       
+0.333333    0.333333    0.333333    High       Medium   Medium     Medium     
+0.333333    0.333333    0.333333    High       Medium   Medium     Low        
+0.333333    0.333333    0.333333    High       Medium   Low        High       
+0.333333    0.333333    0.333333    High       Medium   Low        Medium     
+0.333333    0.333333    0.333333    High       Medium   Low        Low        
+0.333333    0.333333    0.333333    High       Low      High       High       
+0.333333    0.333333    0.333333    High       Low      High       Medium     
+0.333333    0.333333    0.333333    High       Low      High       Low        
+0.333333    0.333333    0.333333    High       Low      Medium     High       
+0.333333    0.333333    0.333333    High       Low      Medium     Medium     
+0.333333    0.333333    0.333333    High       Low      Medium     Low        
+0.333333    0.333333    0.333333    High       Low      Low        High       
+0.333333    0.333333    0.333333    High       Low      Low        Medium     
+0.333333    0.333333    0.333333    High       Low      Low        Low        
+0.333333    0.333333    0.333333    Medium     High     High       High       
+0.333333    0.333333    0.333333    Medium     High     High       Medium     
+0.333333    0.333333    0.333333    Medium     High     High       Low        
+0.333333    0.333333    0.333333    Medium     High     Medium     High       
+0.333333    0.333333    0.333333    Medium     High     Medium     Medium     
+0.333333    0.333333    0.333333    Medium     High     Medium     Low        
+0.333333    0.333333    0.333333    Medium     High     Low        High       
+0.333333    0.333333    0.333333    Medium     High     Low        Medium     
+0.333333    0.333333    0.333333    Medium     High     Low        Low        
+0.333333    0.333333    0.333333    Medium     Medium   High       High       
+0.333333    0.333333    0.333333    Medium     Medium   High       Medium     
+0.333333    0.333333    0.333333    Medium     Medium   High       Low        
+0.333333    0.333333    0.333333    Medium     Medium   Medium     High       
+0.333333    0.333333    0.333333    Medium     Medium   Medium     Medium     
+0.333333    0.333333    0.333333    Medium     Medium   Medium     Low        
+0.333333    0.333333    0.333333    Medium     Medium   Low        High       
+0.333333    0.333333    0.333333    Medium     Medium   Low        Medium     
+0.333333    0.333333    0.333333    Medium     Medium   Low        Low        
+0.333333    0.333333    0.333333    Medium     Low      High       High       
+0.333333    0.333333    0.333333    Medium     Low      High       Medium     
+0.333333    0.333333    0.333333    Medium     Low      High       Low        
+0.333333    0.333333    0.333333    Medium     Low      Medium     High       
+0.333333    0.333333    0.333333    Medium     Low      Medium     Medium     
+0.333333    0.333333    0.333333    Medium     Low      Medium     Low        
+0.333333    0.333333    0.333333    Medium     Low      Low        High       
+0.333333    0.333333    0.333333    Medium     Low      Low        Medium     
+0.333333    0.333333    0.333333    Medium     Low      Low        Low        
+0.333333    0.333333    0.333333    Low        High     High       High       
+0.333333    0.333333    0.333333    Low        High     High       Medium     
+0.333333    0.333333    0.333333    Low        High     High       Low        
+0.333333    0.333333    0.333333    Low        High     Medium     High       
+0.333333    0.333333    0.333333    Low        High     Medium     Medium     
+0.333333    0.333333    0.333333    Low        High     Medium     Low        
+0.333333    0.333333    0.333333    Low        High     Low        High       
+0.333333    0.333333    0.333333    Low        High     Low        Medium     
+0.333333    0.333333    0.333333    Low        High     Low        Low        
+0.333333    0.333333    0.333333    Low        Medium   High       High       
+0.333333    0.333333    0.333333    Low        Medium   High       Medium     
+0.333333    0.333333    0.333333    Low        Medium   High       Low        
+0.333333    0.333333    0.333333    Low        Medium   Medium     High       
+0.333333    0.333333    0.333333    Low        Medium   Medium     Medium     
+0.333333    0.333333    0.333333    Low        Medium   Medium     Low        
+0.333333    0.333333    0.333333    Low        Medium   Low        High       
+0.333333    0.333333    0.333333    Low        Medium   Low        Medium     
+0.333333    0.333333    0.333333    Low        Medium   Low        Low        
+0.333333    0.333333    0.333333    Low        Low      High       High       
+0.333333    0.333333    0.333333    Low        Low      High       Medium     
+0.333333    0.333333    0.333333    Low        Low      High       Low        
+0.333333    0.333333    0.333333    Low        Low      Medium     High       
+0.333333    0.333333    0.333333    Low        Low      Medium     Medium     
+0.333333    0.333333    0.333333    Low        Low      Medium     Low        
+0.333333    0.333333    0.333333    Low        Low      Low        High       
+0.333333    0.333333    0.333333    Low        Low      Low        Medium     
+0.333333    0.333333    0.333333    Low        Low      Low        Low        
+
+cc6_rp_3_d:
+High        Medium      Low         math   
+0.333333    0.333333    0.333333    High   
+0.333333    0.333333    0.333333    Medium 
+0.333333    0.333333    0.333333    Low    
+
+cc7_rp_1:
+High        Medium      Low         cc7_rp_2_a cc7_rp_2_b cc7_rp_2_c 
+0.333333    0.333333    0.333333    High       High       High       
+0.333333    0.333333    0.333333    High       High       Medium     
+0.333333    0.333333    0.333333    High       High       Low        
+0.333333    0.333333    0.333333    High       Medium     High       
+0.333333    0.333333    0.333333    High       Medium     Medium     
+0.333333    0.333333    0.333333    High       Medium     Low        
+0.333333    0.333333    0.333333    High       Low        High       
+0.333333    0.333333    0.333333    High       Low        Medium     
+0.333333    0.333333    0.333333    High       Low        Low        
+0.333333    0.333333    0.333333    Medium     High       High       
+0.333333    0.333333    0.333333    Medium     High       Medium     
+0.333333    0.333333    0.333333    Medium     High       Low        
+0.333333    0.333333    0.333333    Medium     Medium     High       
+0.333333    0.333333    0.333333    Medium     Medium     Medium     
+0.333333    0.333333    0.333333    Medium     Medium     Low        
+0.333333    0.333333    0.333333    Medium     Low        High       
+0.333333    0.333333    0.333333    Medium     Low        Medium     
+0.333333    0.333333    0.333333    Medium     Low        Low        
+0.333333    0.333333    0.333333    Low        High       High       
+0.333333    0.333333    0.333333    Low        High       Medium     
+0.333333    0.333333    0.333333    Low        High       Low        
+0.333333    0.333333    0.333333    Low        Medium     High       
+0.333333    0.333333    0.333333    Low        Medium     Medium     
+0.333333    0.333333    0.333333    Low        Medium     Low        
+0.333333    0.333333    0.333333    Low        Low        High       
+0.333333    0.333333    0.333333    Low        Low        Medium     
+0.333333    0.333333    0.333333    Low        Low        Low        
+
+cc8_g_8:
+High        Medium      Low         math   
+0.333333    0.333333    0.333333    High   
+0.333333    0.333333    0.333333    Medium 
+0.333333    0.333333    0.333333    Low    
+
+cc6_g_4:
+High        Medium      Low         cc7_g_6 
+0.333333    0.333333    0.333333    High    
+0.333333    0.333333    0.333333    Medium  
+0.333333    0.333333    0.333333    Low     
+
+cc7_g_6:
+High        Medium      Low         math   
+0.333333    0.333333    0.333333    High   
+0.333333    0.333333    0.333333    Medium 
+0.333333    0.333333    0.333333    Low    
+
+cc6_g_1:
+High        Medium      Low         cc6_g_4 cc7_g_4 cc7_g_1 cc8_g_6 
+0.333333    0.333333    0.333333    High    High    High    High    
+0.333333    0.333333    0.333333    High    High    High    Medium  
+0.333333    0.333333    0.333333    High    High    High    Low     
+0.333333    0.333333    0.333333    High    High    Medium  High    
+0.333333    0.333333    0.333333    High    High    Medium  Medium  
+0.333333    0.333333    0.333333    High    High    Medium  Low     
+0.333333    0.333333    0.333333    High    High    Low     High    
+0.333333    0.333333    0.333333    High    High    Low     Medium  
+0.333333    0.333333    0.333333    High    High    Low     Low     
+0.333333    0.333333    0.333333    High    Medium  High    High    
+0.333333    0.333333    0.333333    High    Medium  High    Medium  
+0.333333    0.333333    0.333333    High    Medium  High    Low     
+0.333333    0.333333    0.333333    High    Medium  Medium  High    
+0.333333    0.333333    0.333333    High    Medium  Medium  Medium  
+0.333333    0.333333    0.333333    High    Medium  Medium  Low     
+0.333333    0.333333    0.333333    High    Medium  Low     High    
+0.333333    0.333333    0.333333    High    Medium  Low     Medium  
+0.333333    0.333333    0.333333    High    Medium  Low     Low     
+0.333333    0.333333    0.333333    High    Low     High    High    
+0.333333    0.333333    0.333333    High    Low     High    Medium  
+0.333333    0.333333    0.333333    High    Low     High    Low     
+0.333333    0.333333    0.333333    High    Low     Medium  High    
+0.333333    0.333333    0.333333    High    Low     Medium  Medium  
+0.333333    0.333333    0.333333    High    Low     Medium  Low     
+0.333333    0.333333    0.333333    High    Low     Low     High    
+0.333333    0.333333    0.333333    High    Low     Low     Medium  
+0.333333    0.333333    0.333333    High    Low     Low     Low     
+0.333333    0.333333    0.333333    Medium  High    High    High    
+0.333333    0.333333    0.333333    Medium  High    High    Medium  
+0.333333    0.333333    0.333333    Medium  High    High    Low     
+0.333333    0.333333    0.333333    Medium  High    Medium  High    
+0.333333    0.333333    0.333333    Medium  High    Medium  Medium  
+0.333333    0.333333    0.333333    Medium  High    Medium  Low     
+0.333333    0.333333    0.333333    Medium  High    Low     High    
+0.333333    0.333333    0.333333    Medium  High    Low     Medium  
+0.333333    0.333333    0.333333    Medium  High    Low     Low     
+0.333333    0.333333    0.333333    Medium  Medium  High    High    
+0.333333    0.333333    0.333333    Medium  Medium  High    Medium  
+0.333333    0.333333    0.333333    Medium  Medium  High    Low     
+0.333333    0.333333    0.333333    Medium  Medium  Medium  High    
+0.333333    0.333333    0.333333    Medium  Medium  Medium  Medium  
+0.333333    0.333333    0.333333    Medium  Medium  Medium  Low     
+0.333333    0.333333    0.333333    Medium  Medium  Low     High    
+0.333333    0.333333    0.333333    Medium  Medium  Low     Medium  
+0.333333    0.333333    0.333333    Medium  Medium  Low     Low     
+0.333333    0.333333    0.333333    Medium  Low     High    High    
+0.333333    0.333333    0.333333    Medium  Low     High    Medium  
+0.333333    0.333333    0.333333    Medium  Low     High    Low     
+0.333333    0.333333    0.333333    Medium  Low     Medium  High    
+0.333333    0.333333    0.333333    Medium  Low     Medium  Medium  
+0.333333    0.333333    0.333333    Medium  Low     Medium  Low     
+0.333333    0.333333    0.333333    Medium  Low     Low     High    
+0.333333    0.333333    0.333333    Medium  Low     Low     Medium  
+0.333333    0.333333    0.333333    Medium  Low     Low     Low     
+0.333333    0.333333    0.333333    Low     High    High    High    
+0.333333    0.333333    0.333333    Low     High    High    Medium  
+0.333333    0.333333    0.333333    Low     High    High    Low     
+0.333333    0.333333    0.333333    Low     High    Medium  High    
+0.333333    0.333333    0.333333    Low     High    Medium  Medium  
+0.333333    0.333333    0.333333    Low     High    Medium  Low     
+0.333333    0.333333    0.333333    Low     High    Low     High    
+0.333333    0.333333    0.333333    Low     High    Low     Medium  
+0.333333    0.333333    0.333333    Low     High    Low     Low     
+0.333333    0.333333    0.333333    Low     Medium  High    High    
+0.333333    0.333333    0.333333    Low     Medium  High    Medium  
+0.333333    0.333333    0.333333    Low     Medium  High    Low     
+0.333333    0.333333    0.333333    Low     Medium  Medium  High    
+0.333333    0.333333    0.333333    Low     Medium  Medium  Medium  
+0.333333    0.333333    0.333333    Low     Medium  Medium  Low     
+0.333333    0.333333    0.333333    Low     Medium  Low     High    
+0.333333    0.333333    0.333333    Low     Medium  Low     Medium  
+0.333333    0.333333    0.333333    Low     Medium  Low     Low     
+0.333333    0.333333    0.333333    Low     Low     High    High    
+0.333333    0.333333    0.333333    Low     Low     High    Medium  
+0.333333    0.333333    0.333333    Low     Low     High    Low     
+0.333333    0.333333    0.333333    Low     Low     Medium  High    
+0.333333    0.333333    0.333333    Low     Low     Medium  Medium  
+0.333333    0.333333    0.333333    Low     Low     Medium  Low     
+0.333333    0.333333    0.333333    Low     Low     Low     High    
+0.333333    0.333333    0.333333    Low     Low     Low     Medium  
+0.333333    0.333333    0.333333    Low     Low     Low     Low     
+
+cc7_g_2:
+High        Medium      Low         math   
+0.333333    0.333333    0.333333    High   
+0.333333    0.333333    0.333333    Medium 
+0.333333    0.333333    0.333333    Low    
+
+cc7_g_3:
+High        Medium      Low         math   
+0.333333    0.333333    0.333333    High   
+0.333333    0.333333    0.333333    Medium 
+0.333333    0.333333    0.333333    Low    
+
+cc6_rp_3_b:
+High        Medium      Low         math   
+0.333333    0.333333    0.333333    High   
+0.333333    0.333333    0.333333    Medium 
+0.333333    0.333333    0.333333    Low    
+
+cc7_g_1:
+High        Medium      Low         math   
+0.333333    0.333333    0.333333    High   
+0.333333    0.333333    0.333333    Medium 
+0.333333    0.333333    0.333333    Low    
+
+cc8_g_a_3:
+High        Medium      Low         math   
+0.925928    2.78954e-6  0.0740691   High   
+0.509617    0.464348    0.0260351   Medium 
+0.208242    0.711118    0.0806396   Low    
+
+cc8_g_a_1:
+High        Medium      Low         math   
+0.333333    0.333333    0.333333    High   
+0.333333    0.333333    0.333333    Medium 
+0.333333    0.333333    0.333333    Low    
+
+cc7_rp_a_1:
+High        Medium      Low         math   
+0.333333    0.333333    0.333333    High   
+0.333333    0.333333    0.333333    Medium 
+0.333333    0.333333    0.333333    Low    
+
+cc6_rp_a_3:
+High        Medium      Low         math   
+0.333333    0.333333    0.333333    High   
+0.333333    0.333333    0.333333    Medium 
+0.333333    0.333333    0.333333    Low    
+
+cc7_rp_a_3:
+High        Medium      Low         math   
+0.333333    0.333333    0.333333    High   
+0.333333    0.333333    0.333333    Medium 
+0.333333    0.333333    0.333333    Low    
+
+Angle:
+High        Medium      Low         cc8_g_a_3 cc7_g_b_5 
+0.999998    1.07915e-6  9.89741e-7  High      High      
+0.999999    7.38212e-7  6.97881e-7  High      Medium    
+0.971704    0.0282894   7.01443e-6  High      Low       
+0.967893    0.0317963   3.10182e-4  Medium    High      
+0.999054    4.87044e-6  9.41053e-4  Medium    Medium    
+0.736843    1.58043e-6  0.263156    Medium    Low       
+0.61669     2.06631e-6  0.383308    Low       High      
+0.426882    2.67241e-6  0.573116    Low       Medium    
+0.999906    2.92683e-6  9.0729e-5   Low       Low       
+
+cc7_g_b_5:
+High        Medium      Low         math   
+0.434342    0.565426    2.32123e-4  High   
+0.143668    0.260795    0.595536    Medium 
+0.651936    0.263511    0.0845539   Low    
+
+Collect:
+High        Medium      Low         cc6_g_a_1 cc7_rp_a_3 cc6_rp_a_3 
+0.333333    0.333333    0.333333    High      High       High       
+0.333333    0.333333    0.333333    High      High       Medium     
+0.333333    0.333333    0.333333    High      High       Low        
+0.333333    0.333333    0.333333    High      Medium     High       
+0.333333    0.333333    0.333333    High      Medium     Medium     
+0.333333    0.333333    0.333333    High      Medium     Low        
+0.333333    0.333333    0.333333    High      Low        High       
+0.333333    0.333333    0.333333    High      Low        Medium     
+0.333333    0.333333    0.333333    High      Low        Low        
+0.333333    0.333333    0.333333    Medium    High       High       
+0.333333    0.333333    0.333333    Medium    High       Medium     
+0.333333    0.333333    0.333333    Medium    High       Low        
+0.333333    0.333333    0.333333    Medium    Medium     High       
+0.333333    0.333333    0.333333    Medium    Medium     Medium     
+0.333333    0.333333    0.333333    Medium    Medium     Low        
+0.333333    0.333333    0.333333    Medium    Low        High       
+0.333333    0.333333    0.333333    Medium    Low        Medium     
+0.333333    0.333333    0.333333    Medium    Low        Low        
+0.333333    0.333333    0.333333    Low       High       High       
+0.333333    0.333333    0.333333    Low       High       Medium     
+0.333333    0.333333    0.333333    Low       High       Low        
+0.333333    0.333333    0.333333    Low       Medium     High       
+0.333333    0.333333    0.333333    Low       Medium     Medium     
+0.333333    0.333333    0.333333    Low       Medium     Low        
+0.333333    0.333333    0.333333    Low       Low        High       
+0.333333    0.333333    0.333333    Low       Low        Medium     
+0.333333    0.333333    0.333333    Low       Low        Low        
+
+cc6_g_a_1:
+High        Medium      Low         math   
+0.333333    0.333333    0.333333    High   
+0.333333    0.333333    0.333333    Medium 
+0.333333    0.333333    0.333333    Low    
+
+EmptyInventory:
+High        Medium      Low         cc6_g_a_2 cc7_g_b_4 
+0.333333    0.333333    0.333333    High      High      
+0.333333    0.333333    0.333333    High      Medium    
+0.333333    0.333333    0.333333    High      Low       
+0.333333    0.333333    0.333333    Medium    High      
+0.333333    0.333333    0.333333    Medium    Medium    
+0.333333    0.333333    0.333333    Medium    Low       
+0.333333    0.333333    0.333333    Low       High      
+0.333333    0.333333    0.333333    Low       Medium    
+0.333333    0.333333    0.333333    Low       Low       
+
+cc6_g_a_2:
+High        Medium      Low         math   
+0.333333    0.333333    0.333333    High   
+0.333333    0.333333    0.333333    Medium 
+0.333333    0.333333    0.333333    Low    
+
+cc7_g_b_4:
+High        Medium      Low         math   
+0.333333    0.333333    0.333333    High   
+0.333333    0.333333    0.333333    Medium 
+0.333333    0.333333    0.333333    Low    
+
+FillArea2D:
+High        Medium      Low         cc6_rp_a_3 cc7_g_b_6 
+0.333333    0.333333    0.333333    High       High      
+0.333333    0.333333    0.333333    High       Medium    
+0.333333    0.333333    0.333333    High       Low       
+0.333333    0.333333    0.333333    Medium     High      
+0.333333    0.333333    0.333333    Medium     Medium    
+0.333333    0.333333    0.333333    Medium     Low       
+0.333333    0.333333    0.333333    Low        High      
+0.333333    0.333333    0.333333    Low        Medium    
+0.333333    0.333333    0.333333    Low        Low       
+
+cc7_g_b_6:
+High        Medium      Low         math   
+0.333333    0.333333    0.333333    High   
+0.333333    0.333333    0.333333    Medium 
+0.333333    0.333333    0.333333    Low    
+
+FillVolume:
+High        Medium      Low         cc6_g_a_2 cc8_g_c_9 
+0.333333    0.333333    0.333333    High      High      
+0.333333    0.333333    0.333333    High      Medium    
+0.333333    0.333333    0.333333    High      Low       
+0.333333    0.333333    0.333333    Medium    High      
+0.333333    0.333333    0.333333    Medium    Medium    
+0.333333    0.333333    0.333333    Medium    Low       
+0.333333    0.333333    0.333333    Low       High      
+0.333333    0.333333    0.333333    Low       Medium    
+0.333333    0.333333    0.333333    Low       Low       
+
+cc8_g_c_9:
+High        Medium      Low         math   
+0.333333    0.333333    0.333333    High   
+0.333333    0.333333    0.333333    Medium 
+0.333333    0.333333    0.333333    Low    
+
+Fold3D:
+High        Medium      Low         cc6_g_a_4 
+0.333333    0.333333    0.333333    High      
+0.333333    0.333333    0.333333    Medium    
+0.333333    0.333333    0.333333    Low       
+
+cc6_g_a_4:
+High        Medium      Low         math   
+0.333333    0.333333    0.333333    High   
+0.333333    0.333333    0.333333    Medium 
+0.333333    0.333333    0.333333    Low    
+
+PlaceItems:
+High        Medium      Low         cc8_g_a_1 cc8_g_a_2 
+0.333333    0.333333    0.333333    High      High      
+0.333333    0.333333    0.333333    High      Medium    
+0.333333    0.333333    0.333333    High      Low       
+0.333333    0.333333    0.333333    Medium    High      
+0.333333    0.333333    0.333333    Medium    Medium    
+0.333333    0.333333    0.333333    Medium    Low       
+0.333333    0.333333    0.333333    Low       High      
+0.333333    0.333333    0.333333    Low       Medium    
+0.333333    0.333333    0.333333    Low       Low       
+
+cc8_g_a_2:
+High        Medium      Low         math   
+0.333333    0.333333    0.333333    High   
+0.333333    0.333333    0.333333    Medium 
+0.333333    0.333333    0.333333    Low    
+
+AssignmentComplete:
+High        Medium      Low         math   
+0.666666    3.33333e-7  0.333333    High   
+0.715447    8.13008e-8  0.284553    Medium 
+0.755102    2.04082e-7  0.244898    Low    
+
+

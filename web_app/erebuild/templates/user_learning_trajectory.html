@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% block title %}
+Welcome
+{% endblock %}
+
+{% block content %}
+<div class="card justify-content-md-center w-50">
+  <div class="card-header">
+    <svg width="400" height="400">
+    </svg>
+  </div>
+  <div class="card-body">
+<a type="button" class="btn btn-success" href="/assessment">
+Home
+</a>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block add_js_lib %}
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+
+main()
+
+function main(){
+  var graph = {
+    "nodes": 
+    [
+      {id: "#n1", name: "n1"},
+      {id: "#n2", name: "n2"},
+      {id: "#n3", name: "n3"},
+      {id: "#n4", name: "n4"}
+    ],
+    "links":
+    [
+      {source: "#n2", target: "#n1", weight:1},
+      {source: "#n1", target: "#n3", weight:3},
+      {source: "#n4", target: "#n1", weight:3}
+    ]
+  };
+
+  drawGraph(graph);
+}
+
+function drawGraph(data){
+  var width = 400;
+  var height = 400;
+
+  var rect_h = 30;
+  var rect_w = 80;
+
+  // Prepare container
+  var svg = d3.select("svg")
+
+  // Instantiate force simulation
+  var simulation = d3.forceSimulation()
+
+  // Add node forces
+  //   charge: global force on every node
+  //   center: move the nodes to the visual center
+  simulation
+    .force("charge", d3.forceManyBody().strength(-20))
+    .force("center", d3.forceCenter(width / 2, height / 2))
+
+  // Add link forces to the simulation
+  simulation
+    .force("link", d3.forceLink())
+    //.id(link => link.id)
+    //.strength(link => link.weight))
+
+  // build the arrow.
+  svg.append("svg:defs").selectAll("marker")
+    .data(["end"])                   // Different link/path types can be defined here
+    .enter().append("svg:marker")    // This section adds in the arrows
+    .attr("id", String)
+    .attr("viewBox", "0 -5 10 10")
+    .attr("refX", 15)
+    .attr("refY", -1.5)
+    .attr("markerWidth", 6)
+    .attr("markerHeight", 6)
+    .attr("orient", "auto")
+    .append("svg:path")
+      .attr("d", "M0,-5L10,0L0,5");
+
+  // Prepare links/edges
+  var edgeElems = svg.append("g")
+    .selectAll("line")
+    .data(data.links)
+    .enter().append("line")
+      .attr("stroke-width", 2)
+      .attr("stroke", "black")
+      .attr("marker-end", "url(#end)")
+
+  // Prepare node elements
+  var nodeElems = svg.append("g")
+    .selectAll("rect")
+    .data(data.nodes)
+    .enter().append("rect")
+      .attr('id', function(d) { return d.id;})
+      .attr("width", rect_w)
+      .attr("height", rect_h)
+      .attr('rx', 4)
+      .attr('ry', 4)
+      .attr('fill', 'steelblue')
+
+  simulation.nodes(data.nodes)
+    .on("tick", ticked)
+
+  function ticked(){
+    edgeElems
+      .attr("x1", function(d) { return d3.select("rect[id='" + d.source + "']").attr("x") ; })
+      .attr("y1", function(d) { return d3.select("rect[id='" + d.source + "']").attr("y") ; })
+      .attr("x2", function(d) { return d3.select("rect[id='" + d.target + "']").attr("x") ; })
+      .attr("y2", function(d) { return d3.select("rect[id='" + d.target + "']").attr("y") ; })
+
+    nodeElems
+      .attr("x", function(nd) { return nd.x; } )
+      .attr("y", function(nd) { return nd.y; } )
+  }
+
+}
+
+</script>
+
+{% endblock %}

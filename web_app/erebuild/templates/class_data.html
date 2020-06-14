@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}
+User Stats
+{% endblock %}
+
+{% block content %}
+
+ <div class="btn-group">
+  <button id="btnClassStats" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  List Students
+  </button>
+  <div class="dropdown-menu" aria-labelledby="btnClassStats">
+   {% for stu in stu_info.keys() %}
+    <button class="dropdown-item btn btn-primary mr-sm-2 trajectoryBtn" data-stuid="{{stu}}" data-firstname="{{stu_info[stu]}}">{{stu_info[stu]}}</button>
+   {% endfor %}
+  </div>
+ </div>
+  <button id="btnAddStu" type="button" class="btn btn-secondary">
+  Add Students
+  </button>
+  <button id="btnDisplayStuToDrop" type="button" class="btn btn-secondary">
+  Drop Students
+  </button>
+
+</div> 
+
+<div id="graphCanvas">
+</div>
+
+<div id="divUpdateClass">
+</div>
+
+{% endblock %}
+
+
+{% block add_js_lib %}
+    <script src="https://d3js.org/d3.v4.0.0-alpha.40.min.js"></script>
+    <script type=text/javascript src="/assessment/js/erebuild_stu_trajectory.js"></script>
+    <script type=text/javascript src="/assessment/js/erebuild_class_mgmt.js"></script>
+{% endblock %}

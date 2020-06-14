@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+  <head>
+    {% block head %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="/assessment/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assessment/css/custom_styles.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type=text/javascript src="/assessment/js/bootstrap.min.js"></script>
+    <script type=text/javascript src="/assessment/js/erebuild_custom.js"></script>
+
+    <title>{% block title %}{% endblock %} - Erebuild</title>
+
+  <script>
+  // An example showing how to change selection option (class)
+  // based on another selection option (school):
+  //     https://stackoverflow.com/a/4480674
+  //     http://jsfiddle.net/YPsqQ/1/
+
+  // Also known as dynamic select:
+  //   https://www.w3.org/WAI/WCAG20/Techniques/working-examples/SCR19/dynselect.html
+  $.ajax({
+    type: "POST",
+    url: "/assessment/current_schools",
+    contentType: "application/json; charset=utf-8",
+    dataType: "json",
+    success: function(school_classes){
+
+      function schoolChange(){
+        var selectObj = this;
+        var idx = selectObj.selectedIndex;
+    
+        // get the value of the selected option
+        var which = selectObj.options[idx].value;
+    
+        // use the selected option value to retrieve the list of items from the coutnryLists array
+        cList = school_classes[which];
+    
+        // get the country select element via its known id
+        var cSelect = document.getElementById("user_class");
+    
+        // remove the current options from the user_class select
+        var len=cSelect.options.length;
+        while (cSelect.options.length > 0) {
+                cSelect.remove(0);
+        }
+    
+        for (var i = 0; i < cList.length; i++) {
+                newOption = document.createElement("option");
+                newOption.value = cList[i];  // assumes option string and value are the same
+                newOption.text=cList[i];
+                // add the new option
+                try {
+                        cSelect.add(newOption);  // this will fail in DOM browsers but is needed for IE
+                }
+                catch (e) {
+                        cSelect.appendChild(newOption);
+    
+                }
+        }
+      }  
+
+      var school_elem = document.getElementById("user_school");
+      school_elem.onchange = schoolChange;
+
+      // school_classes is a dictionary (json) with keys as the school names and
+      // values as the list of class names in that school.
+      // Initialize the school names in the select element.
+      for(var k in school_classes){
+        var opt = document.createElement("option");
+        opt.text = opt.value = k;
+        school_elem.append(opt);
+      };
+    },
+    failure: function(err){
+      console.log("Ajax call failed!", err)
+    }
+  });
+
+
+  </script>
+
+    {% endblock %}
+  </head>
+  <body class="mx-3 bg-light">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark rounded">
+      <a class="navbar-brand abs" href="/assessment">Erebuild Stats</a>
+    </nav>
+
+<div class="card justify-content-md-center w-50">
+  <div class="card-header">
+  {% if validcode  %}
+    Teacher Registration Form
+  {% else %}
+    User Registration Form
+  {% endif %}
+  </div>
+  <div class="card-body">
+    <form id="user_register_form" action="/assessment/user/new" method="post">
+      <div class="form-group">
+        <label for="user_firstname">First Name</label>
+        <input type="text" class="form-control" id="user_firstname" name="user_firstname" aria-describedby="firstnameHelp"
+          placeholder="First Name: at least 2 characters" pattern="[A-Za-z0-9]{2,}" required>
+      </div>
+      <div class="form-group">
+        <label for="user_lastname">Last Name</label>
+        <input type="text" class="form-control" id="user_lastname" name="user_lastname" aria-describedby="lastnameHelp"
+          placeholder="Last Name: at least 2 characters" pattern="[A-Za-z0-9]{2,}" required>
+      </div>
+      <div class="form-group">
+        <label for="user_email">Email</label>
+        <input type="email" class="form-control" id="user_email" name="user_email" aria-describedby="emailHelp" placeholder="Enter email" required>
+      </div>
+      <div class="form-group">
+        <label for="user_password">Password</label>
+        <input type="password" class="form-control" id="user_password" placeholder="Password" pattern=".{3,}" required>
+      </div>
+      <div class="form-group">
+        <label for="re_user_password">Password</label>
+        <input type="password" class="form-control" id="re_user_password" name="user_password" placeholder="Re-type password" onkeyup='match_passwords();' required>
+        <span id='password_match_message'></span>
+      </div>
+  {% if not validcode %}
+      <div class="form-group">
+        <label for="user_school">Select School</label>
+        <select id="user_school" name="user_school" class="school_class" form="user_register_form" required>
+          <option selected></option>
+        </select>
+        <label for="user_class">Select Class</label>
+        <select id="user_class" name="user_class" class="school_class" form="user_register_form" required>
+          <option selected></option>
+        </select>
+      </div>
+  {% else %}
+      <div class="form-group">
+        <label for="user_school">School Name</label>
+        <input type="text" class="form-control" id="user_school" name="user_school" placeholder="Name of your School" pattern="[A-Za-z0-9]{3,}" required>
+      </div>
+      <div class="form-group">
+        <label for="user_class">Class Name</label>
+        <input type="text" class="form-control" id="user_class" placeholder="Name of your class" pattern="[A-Za-z0-9]{3,}" required>
+      </div>
+      <div class="form-group">
+        <label for="re_user_class">Class Name</label>
+        <input type="text" class="form-control" id="re_user_class" placeholder="Re-enter name of your class"
+         name="user_class"  onkeyup='match_class_name();' required>
+        <span id='class_match_message'></span>
+      </div>
+      <div class="form-group">
+        <label for="register_code">Registration Code</label>
+        <input type="text" class="form-control" name="register_code" id="register_code" value="{{validcode}}" readonly>
+      </div>
+  {% endif %}
+    </form>
+      <button type="submit" class="btn btn-info" onclick='submit_user_registration_form();'>Submit</button>
+  </div>
+</div>
+
+
+  </body>
+
+</html>
+

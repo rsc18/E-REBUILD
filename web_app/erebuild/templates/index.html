@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+Welcome - Erebuild
+{% endblock %}
+
+{% block content %}
+
+{% if not session.logged_in %}
+  Please log in.
+{% else %}
+  {% if session.is_superuser %}
+
+ <!--<a class="btn btn-success mr-sm-2" href="/assessment/classes" role="button">Explore Classes</a> -->
+ <a class="btn btn-success mr-sm-2" href="/assessment/class" role="button">Show Class</a>
+ <a class="btn btn-success mr-sm-2" href="/assessment/active_registrations" role="button">View Active URLs</a>
+  {% elif session.is_teacher %}
+ <a class="btn btn-success mr-sm-2" href="/assessment/class" role="button">Show Class</a>
+  {% else %}
+ <a class="btn btn-success mr-sm-2" href="/assessment/stats" role="button">Show Stats</a>
+
+  {% endif %}
+
+{% endif %}
+
+{% endblock %}
+

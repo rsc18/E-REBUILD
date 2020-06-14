@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+Game offer
+{% endblock %}
+
+{% block content %}
+
+  <form action="/game" method="POST" role="form" enctype='application/json'>
+    <h2>Fake game play</h2>
+    <div>
+    <input type="text" class="form-control" name="user_email" id="user_email" value="{{session.user_email}}" readonly>
+    <input type="text" class="form-control" name="game_level" id="game_level" value="{{gamelevel}}" readonly>
+    </div>
+    <p>Fill in the observables that will be sent to the server</p>
+
+    <div>Angle: <input name="Angle" type="text" value="5.0"></div>
+    <div>Distance: <input name="Distance" type="text" value="2.0"></div>
+    <div>NumWrong: <input name="NumWrong" type="text" value="0.0"></div>
+    <div>Time: <input name="Time" type="text" value="40"></div>
+
+    <input type="submit" value="Play">
+  </form>
+
+{% endblock %}
+
+

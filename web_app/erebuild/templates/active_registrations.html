@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}
+Active Registrations
+{% endblock %}
+
+{% block content %}
+<h4>Valid and active URLs for teacher registration:</h4>
+  <ul>
+   {% for active_url in  active_urls %}
+      <li>{{active_url}}
+      </li>
+   {% endfor %}
+  </ul>
+
+<a href="/assessment/active_registrations/new" class="btn btn-success mr-sm-2">Create New</a>
+{% endblock %}

@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+  <head>
+    {% block head %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type=text/javascript src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script type=text/javascript src="{{ url_for('static', filename='js/erebuild_custom.js') }}"></script>
+    <title>{% block title %}{% endblock %} - Erebuild</title>
+    {% endblock %}
+  </head>
+  <body class="mx-3 bg-light">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark rounded">
+      <a class="navbar-brand abs" href="/assessment">Erebuild Stats</a>
+    </nav>
+
+<div class="card justify-content-md-center w-50">
+  <div class="card-header">
+    Teacher Registration Form
+  </div>
+  <div class="card-body">
+    <form id="teacher_register_form" action="/teacher/new" method="post">
+      <div class="form-group">
+        <label for="teacher_email">Email</label>
+        <input type="email" class="form-control" id="teacher_email" name="teacher_email" aria-describedby="emailHelp" placeholder="Enter email" required>
+      </div>
+      <div class="form-group">
+        <label for="teacher_password">Password</label>
+        <input type="password" class="form-control" id="teacher_password" placeholder="Password" required>
+      </div>
+      <div class="form-group">
+        <label for="re_teacher_password">Password</label>
+        <input type="password" class="form-control" id="re_teacher_password" name="teacher_password" placeholder="Re-type password" onkeyup='match_passwords();' required>
+        <span id='password_match_message'></span>
+      </div>
+      <div class="form-group">
+        <label for="teacher_class">Class Name</label>
+        <input type="text" class="form-control" id="teacher_class" placeholder="Name of your class" required>
+      </div>
+      <div class="form-group">
+        <label for="re_teacher_class">Class Name</label>
+        <input type="text" class="form-control" id="re_teacher_class" placeholder="Re-enter name of your class"
+         name="teacher_class"  onkeyup='match_class_name();' required>
+        <span id='class_match_message'></span>
+      </div>
+      <div class="form-group">
+        <label for="register_code">Registration Code</label>
+        <input type="text" class="form-control" name="register_code" id="register_code" value="{{validcode}}" readonly>
+      </div>
+    </form>
+      <button type="submit" class="btn btn-info" onclick='submit_teacher_registration_form();'>Submit</button>
+  </div>
+</div>
+
+  </body>
+
+</html>
+

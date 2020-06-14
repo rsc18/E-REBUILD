@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+Current User Competency
+{% endblock %}
+
+{% block content %}
+
+  <div>Current user competencies:
+    <ul>
+   {% for key, value in competency.items() %}
+      <li>{{key}}
+        <ul>
+         <li>{{value}}</li>
+        </ul>
+      </li>
+   {% endfor %}
+     </ul>
+  </div>
+
+{% endblock %}
+
+

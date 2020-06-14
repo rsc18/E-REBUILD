@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width">
+    <title>Graph Editor</title>
+    <script src="https://d3js.org/d3.v4.0.0-alpha.40.min.js"></script>
+    <style>
+
+div.tooltip {
+  position: absolute;
+  text-align: left;
+  width: 200px;
+  height: auto;
+  padding: 2px;
+  font: 12px sans-serif;
+  background: #eee;
+  border: 2px;
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+    </style>
+  </head>
+  <body>
+<script>
+/*
+Components:
+  1. rect: nodes of the graph layout. fill color is changed based on common core competency.
+  2. text: common core standard code
+  3. tooltip: displays commoncore standard summary on mouseover
+  4. links: dependency between common core standards
+*/
+
+function get_graph_data(){
+  var test_graph = {
+    "nodes":
+    ["socks","shoes","shirt","belt","tie","jacket","pants","underpants"],
+    "links":
+    [
+      {"source":0,"target":1},
+      {"source":2,"target":3},
+      {"source":2,"target":4},
+      {"source":3,"target":5},
+      {"source":4,"target":5},
+      {"source":6,"target":1},
+      {"source":6,"target":3},
+      {"source":7,"target":6}
+    ]};
+
+  // Commoncore math competency graph
+  var cc_graph = {
+    "nodes":
+    [
+      {id: "6.rp.4", summary: "ratio proportion 4", competency: 0.8, objectives: [{id: "1"}, {id: "2"}],
+       "x_": 0.1, "y_": 0.5
+      },
+      {id: "6.rp.5", summary: "ratio proportion 5", competency: 0.6, objectives: [{id: "1"}, {id: "2"}],
+       "x_": 0.3, "y_": 0.1
+      },
+      {id: "6.g.5", summary: "geometry 5", competency: 0.4, objectives: [{id: "1"}, {id: "2"}],
+       "x_": 0.3, "y_": 0.6
+      },
+      {id: "6.rp.7", summary: "ratio proportion 7", competency: 0.4, objectives: [{id: "1"}, {id: "2"}],
+       "x_": 0.5, "y_": 0.5
+      },
+    ],
+    "links":
+    [
+      {source: 0, target: 1},
+      {source: 1, target: 2},
+      {source: 0, target: 3},
+      {source: 0, target: 2},
+    ]
+  };
+
+  return cc_graph;
+}
+
+      var width = 800,
+          height = 400,
+          nodeH = 40,
+          nodeW = 90,
+          arrowWidth = 8,
+          svg = d3.select("body")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height)
+          linkG = svg.append("g")
+          nodeG = svg.append("g")
+
+      var rectRound = 6;
+      var div_tip = d3.select("body").append("div")
+         .attr("class", "tooltip")
+         .style("opacity", 0);
+     
+      // build the arrow.
+      svg.append("svg:defs").selectAll("marker")
+        .data(["arrow"])                   // Different link/path types can be defined here
+        .enter().append("marker")    // This section adds in the arrows
+        .attr("id", String)
+        .attr("viewBox", "0 -5 10 10")
+        .attr("refX", 10)
+        .attr("refY", 0.0)
+        .attr("markerWidth", 5)
+        .attr("markerHeight", 5)
+        .attr("orient", "auto")
+        .attr("fill", "#aaa")
+        .append("svg:path")
+        .attr("d", "M0,-5L10,0L0,5");
+
+
+
+      function render(graph){
+        
+        var link = linkG.selectAll("line").data(graph.links);
+        var linkEnter = link.enter().append("line")
+          .attr("class", "link-line")
+          .attr("stroke-width", 2)
+          .attr("stroke", "#aaa")
+          .attr("marker-end", "url(#arrow)")
+          .attr("x1", function(d) { return d.source.x_ * width + nodeW / 2 ; })
+          .attr("y1", function(d) { return d.source.y_ * height + nodeH / 2 ; })
+          .attr("x2", function(d) { return d.target.x_ * width + nodeW / 2 + nodeW / 2 * Math.sign(d.source.x_ - d.target.x_); })
+          .attr("y2", function(d) { return d.target.y_ * height + nodeH / 2 + nodeH / 2 * Math.sign(d.source.y_ - d.target.y_); })
+
+        link.exit().remove();
+        link = link.merge(linkEnter);
+        
+        var node = nodeG.selectAll("g").data(graph.nodes);
+        var nodeEnter = node.enter().append("g");
+        node.exit().remove();
+        
+        nodeEnter.append("rect")
+          .attr("class", "node-rect")
+          .attr("x", function (d){ return d.x_ * width; })
+          .attr("y", function (d){ return d.y_ * height; })
+          .attr("height", nodeH)
+          .attr("width", nodeW)
+          .attr("fill", function (d){
+            var color = "#90ee90";
+            if (d.competency < 0.6){
+              color = "#fff";
+            }
+            return color;
+          })
+          .attr("stroke", "#444")
+          .attr("rx", rectRound)
+          .attr("ry", rectRound)
+
+        //nodeEnter.append("text")
+        nodeEnter.append("text")
+          .attr("class", "node-text")
+          .attr("dominant-baseline", "hanging")
+          .attr("font-size", "15px")
+          .attr("cursor", "pointer")
+          .text(function (d){ console.log(d.id); return d.id; })
+          .attr("x", function (d){ return d.x_ * width + rectRound; })
+          .attr("y", function (d){ return d.y_ * height ; })
+
+        node = node.merge(nodeEnter);
+        
+
+        node.select(".node-text")
+          .on("mouseover", function(d) {
+            div_tip.transition()
+              .duration(200)
+              .style("opacity", .9);
+            div_tip.html(d.summary)
+              .style("left", (d3.event.pageX) + "px")
+              .style("top", (d3.event.pageY - 28) + "px");
+          })
+          .on("mouseout", function(d) {
+            div_tip.transition()
+              .duration(500)
+              .style("opacity", 0);
+        });
+
+      }
+        
+        
+      var graph = get_graph_data();
+
+      graph.links = graph.links.map(function (d){
+        d.source = graph.nodes[d.source];
+        d.target = graph.nodes[d.target];
+        return d;
+      });
+      render(graph);
+    </script>
+  </body>
+</html>
