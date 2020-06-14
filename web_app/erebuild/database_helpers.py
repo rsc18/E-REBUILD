@@ -5,11 +5,17 @@ from erebuild.database_models import UserCompetency
 from erebuild.database_models import UserInfo
 from erebuild.database_models import TeacherRegistrationCodes
 from erebuild.database_models import LatestBayesNet
+from erebuild.database_models import LevelGoJunc
+from erebuild.database_models import LevelDetails
+from erebuild.database_models import GoDetails
+import pandas as pd
+
 import json
 from werkzeug.security import generate_password_hash
 from werkzeug.security import check_password_hash
 from collections import defaultdict
 import sqlalchemy
+
 
 def rename_to_db_keys(obs):
     """
@@ -18,28 +24,28 @@ def rename_to_db_keys(obs):
     before inserting into the database.
     """
     map_db_schema = {"Angle": "angle",
-                 "LevelComplete": "level_complete",
-                 "MaterialCredits": "materials_credits",
-                 "Time": "time",
-                 "BuildingComplete": "building_complete",
-                 "NumBlocks": "num_blocks",
-                 "NumTrades": "num_trades",
-                 "AssignmentComplete": "assignment_complete",
-                 "Distance": "distance",
-                 "NumAssignments": "num_assignments",
-                 "NumFailedAssignments": "num_failed_assignments",
-                 "NumFamilyCollected": "num_fam_collected",
-                 "NumWrong": "num_wrong",
-                 "Size": "size",
-                }
+                     "LevelComplete": "level_complete",
+                     "MaterialCredits": "materials_credits",
+                     "Time": "time",
+                     "BuildingComplete": "building_complete",
+                     "NumBlocks": "num_blocks",
+                     "NumTrades": "num_trades",
+                     "AssignmentComplete": "assignment_complete",
+                     "Distance": "distance",
+                     "NumAssignments": "num_assignments",
+                     "NumFailedAssignments": "num_failed_assignments",
+                     "NumFamilyCollected": "num_fam_collected",
+                     "NumWrong": "num_wrong",
+                     "Size": "size",
+                     }
 
-    renamed = {map_db_schema[k]:obs[k] for k in obs}
+    renamed = {map_db_schema[k]: obs[k] for k in obs}
 
     return renamed
 
 
 def insert_observables(user_email, level_id, observables):
-    #obs = rename_to_db_keys(observables)
+    # obs = rename_to_db_keys(observables)
     play_info = {"user_email": user_email, "level_id": level_id}
     tbl_entry = UserGameLogs(**{**play_info, **observables})
     E_DB.session.add(tbl_entry)
@@ -63,7 +69,9 @@ def get_latest_user_competency(user_email):
     Return last recorded math competency of the student.
     """
     try:
-        row = UserCompetency.query.filter_by(user_email=user_email).order_by(UserCompetency.play_time.desc()).limit(1).all()[0]
+        row = \
+        UserCompetency.query.filter_by(user_email=user_email).order_by(UserCompetency.play_time.desc()).limit(1).all()[
+            0]
         comp = json.loads(row.competency)
     # There's no entry for the user.
     except IndexError:
@@ -76,7 +84,7 @@ def insert_login_info(user_info):
     # Get the column names from the table
     column_names = UserInfo.__table__.columns.keys()
 
-    #print(user_info)
+    # print(user_info)
     # Filter out user info keys which don't correspond to the column names
     user_info = {k: v for k, v in user_info.items() if k in column_names}
     print("Inserting login info: ", user_info)
@@ -120,11 +128,11 @@ def verify_user_login(user_email, password):
               "is_superuser": False, "is_user": False,
               "id": -1, "user_email": None, "user_school": None,
               "user_class": None
-             }
+              }
 
     if user is not None:
-        #print(user.user_password, user.user_email)
-        #hashed_pass = generate_password_hash(password)
+        # print(user.user_password, user.user_email)
+        # hashed_pass = generate_password_hash(password)
         if check_password_hash(user.user_password, password):
             status["valid"] = True
             status["is_teacher"] = user.user_type == 1
@@ -167,12 +175,12 @@ def get_class_stats_for_teacher(teacher):
     # Get all the students in the same class
     class_stu_ids = {row.user_email: row.user_firstname for row in UserInfo.query.filter_by(user_class=tchr_class).all()
                      if row.user_type == 2
-                    }
+                     }
 
     print(class_stu_ids)
 
     # Extract competency for each student
-    stu_comp = {stu_email:row.competency for stu_email in class_stu_ids
+    stu_comp = {stu_email: row.competency for stu_email in class_stu_ids
                 for row in UserCompetency.query.filter_by(user_email=stu_email).all()}
 
     return class_stu_ids, stu_comp
@@ -187,8 +195,8 @@ def get_student_info_under_teacher(teacher_email):
 
     # Get all the students in the same class
     stu_info = {row.user_email: [row.user_firstname, row.user_lastname]
-            for row in UserInfo.query.filter_by(user_class=tchr_class).all()
-            if row.user_type == 2}
+                for row in UserInfo.query.filter_by(user_class=tchr_class).all()
+                if row.user_type == 2}
 
     return stu_info
 
@@ -221,7 +229,7 @@ def get_user_stats(user_email):
     Return math competency of the student per game level.
     """
     data = [(row.level_id, row.competency) for row in UserCompetency.query.filter_by(user_email=user_email).all()]
-    data = {i:tup for i, tup in enumerate(data)}
+    data = {i: tup for i, tup in enumerate(data)}
     return data
 
 
@@ -238,3 +246,47 @@ def is_valid_registration_code(randstr):
     else:
         return False
 
+
+def get_data_level_go():
+    data_level_go=pd.DataFrame(columns=LevelGoJunc.__table__.columns.keys())
+    for row in LevelGoJunc.query.all():
+        temp_dict={}
+        for col_id in LevelGoJunc.__table__.columns.keys():
+            temp_dict[col_id]=getattr(row,col_id)
+        data_level_go=data_level_go.append(temp_dict,ignore_index=True)
+    return pd.DataFrame(data_level_go)
+
+
+def get_data_level():
+    level_detail = pd.DataFrame(columns=LevelDetails.__table__.columns.keys())
+    for row in LevelDetails.query.all():
+        temp_dict={}
+        for col_id in LevelDetails.__table__.columns.keys():
+            temp_dict[col_id]=getattr(row, col_id)
+            # print('{}->{}'.format(col_id,getattr(row, col_id)))
+        level_detail=level_detail.append(temp_dict,ignore_index=True)
+
+
+        # level_detail=level_detail.append({'level_id':row.level_id,
+        #                                   'next_id':row.next_id,
+        #                                   'starting_credits':row.starting_credits,
+        #                                   'area_name':row.area_name,
+        #                                   'creator':row.creator,
+        #                                   'name':row.name,
+        #                                   'description':row.description,
+        #                                   'img_url':row.img_url,
+        #                                   'tt_link':row.tt_link,
+        #                                   'ls_link':row.ls_link},ignore_index=True)
+
+        #level_detail=level_detail.append()
+    return pd.DataFrame(level_detail)
+
+
+def get_go_details():
+    data_go_details = pd.DataFrame(columns=GoDetails.__table__.columns.keys())
+    for row in GoDetails.query.all():
+        temp_dict = {}
+        for col_id in GoDetails.__table__.columns.keys():
+            temp_dict[col_id] = getattr(row, col_id)
+        data_go_details = data_go_details.append(temp_dict, ignore_index=True)
+    return pd.DataFrame(data_go_details)

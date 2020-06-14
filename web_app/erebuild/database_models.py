@@ -1,6 +1,7 @@
 # Import SQLAlchemy database defined in erebuild/__init__.py
 from erebuild import E_DB
 from datetime import datetime
+from sqlalchemy import ForeignKey, PrimaryKeyConstraint
 
 # Database tables
 class UserGameLogs(E_DB.Model):
@@ -101,4 +102,43 @@ class LatestBayesNet(E_DB.Model):
 
     user_email = E_DB.Column(E_DB.String, nullable=False, primary_key=True)
     bayesnet = E_DB.Column(E_DB.Text, nullable=False)
+
+class LevelGoJunc(E_DB.Model):
+    """
+        Table that stores the map of level id to game objectives.
+    """
+    __tablename__="junc_level_go"
+    __table_args__ = (
+        PrimaryKeyConstraint('level_id', 'go_id'),
+    )
+
+    level_id=E_DB.Column(E_DB.Integer,ForeignKey("tbl_levels.level_id"))
+    go_id=E_DB.Column(E_DB.Integer,ForeignKey("tbl_game_objectives.id"))
+
+class LevelDetails(E_DB.Model):
+    """
+            Table that stores the level details
+    """
+    __tablename__="tbl_levels"
+
+    level_id=E_DB.Column(E_DB.Integer,nullable=False,primary_key=True)
+    next_id=E_DB.Column(E_DB.String)
+    starting_credits=E_DB.Column(E_DB.Integer)
+    area_name=E_DB.Column(E_DB.String)
+    creator=E_DB.Column(E_DB.Integer)
+    name=E_DB.Column(E_DB.String)
+    description=E_DB.Column(E_DB.String)
+    img_url=E_DB.Column(E_DB.String)
+    tt_link=E_DB.Column(E_DB.Text)
+    ls_link=E_DB.Column(E_DB.Text)
+
+class GoDetails(E_DB.Model):
+    """
+            Table that stores the level details
+    """
+    __tablename__="tbl_game_objectives"
+    id=E_DB.Column(E_DB.Integer,nullable=False,primary_key=True)
+    name=E_DB.Column(E_DB.Text)
+    description=E_DB.Column(E_DB.String)
+
 
